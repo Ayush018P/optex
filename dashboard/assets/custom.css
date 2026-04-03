@@ -1,0 +1,58 @@
+body {
+    background-color: #0b0f19 !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.card {
+    background-color: rgba(20, 25, 35, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 12px !important;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(0, 200, 255, 0.1);
+    border: 1px solid rgba(0, 200, 255, 0.2) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600 !important;
+    letter-spacing: -0.5px;
+}
+
+.btn-primary, .btn-success {
+    background: linear-gradient(135deg, #0d6efd 0%, #00d2ff 100%) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.6);
+    transform: scale(1.02);
+}
+
+.js-plotly-plot .plotly .main-svg {
+    background: transparent !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a3347;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3e4c6b;
+}
