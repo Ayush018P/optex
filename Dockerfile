@@ -24,7 +24,9 @@ COPY --from=base /app /app
 
 RUN useradd -m optex
 USER optex
-EXPOSE 8050
-CMD ["gunicorn", "dashboard.app:server", "-k", "gevent", "-b", "0.0.0.0:8050"]
+# Hugging Face Spaces requires port 7860
+ENV PORT=7860
+EXPOSE 7860
+CMD ["gunicorn", "dashboard.app:server", "-k", "gevent", "-b", "0.0.0.0:7860", "--timeout", "120"]
 
 #http://localhost:8050/live
