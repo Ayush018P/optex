@@ -1,17 +1,23 @@
 """Root entrypoint for Vercel deployment.
 
-Vercel looks for a Flask `app` (or `server`) object in root-level files.
-We re-export both names from the actual Dash app so Vercel can find it.
+Vercel's static scanner requires an explicit `from flask import Flask`
+in the file to recognise it as a Flask application.
+Dash builds on Flask, so we re-export the underlying Flask server here.
 """
 from __future__ import annotations
 
 import sys
 import os
 
+# Flask import is required for Vercel's framework detector (static scan)
+from flask import Flask  # noqa: F401
+
 # Make sure the repo root is on the path so dashboard.* imports work
-sys.path.insert(0, os.path.dirname(__file__))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from dashboard.app import app, server  # noqa: F401 – re-exported for Vercel
+from dashboard.app import server
 
-# Vercel / WSGI servers look for `app` as the callable
-app = server
+# 'app' must be the Flask WSGI callable — Vercel, Gunicorn, and uWSGI all
+# look for a module-level variable named `app`.
+app: Flask = server
+
