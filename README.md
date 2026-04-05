@@ -1,10 +1,6 @@
 ---
 title: OPTEX – Quantitative Optimal Execution Platform
-emoji: 📈
-colorFrom: blue
-colorTo: green
-sdk: docker
-pinned: true
+
 short_description: RL-powered trade execution platform for NSE/BSE stocks
 ---
 
